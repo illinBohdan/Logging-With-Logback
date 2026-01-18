@@ -1,4 +1,4 @@
-package com.app.coffee.order;
+package com.app.coffee.order.exceptions;
 
 public class CoffeeFinishException extends RuntimeException {
     public CoffeeFinishException(String message) {

@@ -1,5 +1,7 @@
-package com.app.coffee.order;
+package com.app.coffee.order.services;
 
+import com.app.coffee.order.entity.Order;
+import com.app.coffee.order.exceptions.CoffeeFinishException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +13,7 @@ public class CoffeeOrderBoard {
     private static final Logger log = LoggerFactory.getLogger(CoffeeOrderBoard.class);
     private final List<Order> orders = new ArrayList<>();
     private int counter = 0;
-    private static int volumeCoffee = 16;
+    private static int volumeCoffee = 10;
 
     public void add(String name) {
         if (volumeCoffee <= 0) {
@@ -21,8 +23,6 @@ public class CoffeeOrderBoard {
         volumeCoffee--;
         orders.add(order);
         log.info("Замовлення №{} для {} прийнято| Кави залишилось {}", counter, name, volumeCoffee);
-
-
     }
 
     public void deliver() {
@@ -50,7 +50,6 @@ public class CoffeeOrderBoard {
         log.info("=== Поточний стан черги ===");
         log.info("№|" + "Ім'я");
         for (Order order : orders) {
-
             log.info("{}|{}", order.getNumberOfOrder(), order.getName());
         }
     }

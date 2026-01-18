@@ -1,4 +1,4 @@
-package com.app.coffee.order;
+package com.app.coffee.order.entity;
 
 public class Order {
 
